@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Conversion</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+	  background-image: url("images/blue.gif");
+	  background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    select {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+	
+	.button-container {
+      display: inline-block;
+      padding: 8px 18px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+	  margin-right: 40%;
+	  padding-center: 10%;
+	  
+	  
+    }
+
+    button:hover {
+      background-color: #45a049;
+	  
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+	
+.footer{
+	background-color:#1270AA ;
+	position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: center;;
+ }
+ 
+ #copyright {
+      text-align: center;
+      margin-top: 290px;
+      font-size: 12px;
+      color: #888;
+    }
+	
+  </style>
+</head>
+<body>
+
+	<!-- Navbar (sit on top-right) -->
+<div class="w3-top">
+	  
+  <div class="w3-bar w3-white w3-padding-20 w3-card" style="letter-spacing:3px;">
+  <div class="responsive">
+  <a target="_blank" href="images/lew1.png">
+  <img src="images/lew1.png" class="w3-circle w3-left" alt="lew" style="width:5%">
+
+    <div class="w3-right w3-hide-medium">
+	<br>
+	  <a href="home.html" class="w3-bar-item w3-button">Home</a>
+      <a href="about.html" class="w3-bar-item w3-button">About Us</a> 
+    </div>
+  </div>
+  </div>
+  </div>
+  <br>
+  <br><br><br>
+
+  <div class="container w3-white">
+    <h2>Number Conversion</h2>
+    <label for="number">Enter a number:</label>
+    <input type="text" id="number" placeholder="Enter a binary, decimal, or hexadecimal number" />
+    <label for="input-format" >Input format:</label>
+    <select id="input-format" >
+      <option value="binary">Binary</option>
+      <option value="decimal">Decimal</option>
+      <option value="hexadecimal">Hexadecimal</option>
+    </select>
+    <label for="output-format">Output format:</label>
+    <select id="output-format">
+      <option value="decimal">Decimal</option>
+      <option value="binary">Binary</option>
+      <option value="hexadecimal">Hexadecimal</option>
+    </select>
+    <div class="button ">
+    <button onclick="convert()">Convert</button>
+	<div class="result w3-right " id="result"></div>
+    <button onclick="reset()">Clear</button>
+</div>
+
+  </div>
+
+  <script>
+	function reset()
+	{
+	 document.getElementById("number").value = "";
+	 doucument.getElementById("input-format").value = "";
+	 doucument.getElementById("output-format").value = "";
+	 doucument.getElementById("result").value = "";
+	}
+	
+    function convert() {
+      var input = document.getElementById("number").value;
+      var inputFormat = document.getElementById("input-format").value;
+      var outputFormat = document.getElementById("output-format").value;
+      var result = document.getElementById("result");
+
+      if (input === "") {
+        result.innerHTML = "Please enter a number.";
+        return;
+      }
+
+      var decimal = 0;
+	  
+	  function myFunction() {
+  document.getElementById("myForm").reset();
+}
+
+      if (inputFormat === "binary") {
+        // Binary to Decimal or Hexadecimal
+        decimal = parseInt(input, 2);
+      } else if (inputFormat === "decimal") {
+        decimal = parseInt(input, 10);
+      } else if (inputFormat === "hexadecimal") {
+        // Hexadecimal to Decimal
+        decimal = parseInt(input, 16);
+      } else {
+        result.innerHTML = "Invalid input format.";
+        return;
+      }
+
+      if (outputFormat === "decimal") {
+        result.innerHTML = "Decimal: " + decimal;
+      } else if (outputFormat === "binary") {
+        result.innerHTML = "Binary: " + decimal.toString(2);
+      } else if (outputFormat === "hexadecimal") {
+        result.innerHTML = "Hexadecimal: " + decimal.toString(16).toUpperCase();
+      } else {
+        result.innerHTML = "Invalid output format.";
+      }
+    }
+  </script>
+  
+<!-- Footer -->
+<div class="footer" id="copyright">
+<br>
+<div class="social-media w3-hover-opacity ">
+    <a href="https://www.facebook.com/your-page-url-here" target="_blank">
+      <img src="images/fb.png" height="23" width="25" alt="Facebook Logo">
+    </a>
+    <a href="https://twitter.com/" target="_blank">
+      <img src="images/twitter1.png" height="23" width="25" alt="Twitter Logo">
+    </a>
+	<a href="https://www.instagram.com/" target="_blank">
+      <img src="images/instagram.png" height="23" width="25" alt="Instagram Logo">
+    </a>
+	<p>&copy; 2023 Group 4. All rights reserved.</p>
+  </div>  
+</div>  
+  
+</body>
+</html>
+
